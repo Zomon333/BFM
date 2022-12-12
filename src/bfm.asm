@@ -11,8 +11,9 @@
 ;
 
 section     .data
-    dataArray DB 30000
-    codeArray DB 30000
+    LEN: equ 30000
+    dataArray DB $LEN
+    codeArray DB $LEN
 
     dPtr DD 1
     pPtr DD 1
@@ -36,7 +37,7 @@ section .text
             cmp DWORD [pPtr], 0
             jl outRange
             ; 2-2) Test if our program has overflowed
-            cmp DWORD [pPtr], 30000
+            cmp DWORD [pPtr], $LEN
             jge outRange
 
             call _parse
@@ -88,7 +89,7 @@ section .text
     ;   Increments data at dPtr in dataArray
     ;
     _opIncData:
-        
+
     ret
 
     ;
