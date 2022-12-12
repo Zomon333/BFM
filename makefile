@@ -3,7 +3,7 @@ FLAGS = -f
 
 SOURCE_DIR = ./src
 
-NAME = "./out/Assignment6-4"
+NAME = "./out/BrainfuckAssembly"
 
 all:
 	$(CC) $(FLAGS) elf64 $(SOURCE_DIR)/*.asm
